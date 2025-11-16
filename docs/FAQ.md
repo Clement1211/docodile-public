@@ -66,7 +66,7 @@ Actuellement, Docodile est optimisé pour :
 - 🇫🇷 **Français** (priorité, secteur nucléaire)
 - 🇬🇧 **Anglais** (industrie internationale)
 
-Le modèle IA utilisé (`all-MiniLM-L6-v2`) supporte naturellement 50+ langues, mais la précision peut varier.
+Les modèles IA utilisés supportent naturellement 50+ langues, mais la précision peut varier.
 
 ---
 
@@ -170,15 +170,15 @@ Docodile ne transmet **aucun contenu** de vos documents vers des serveurs extern
 
 ### Quelle IA utilise Docodile ?
 
-Docodile utilise le modèle **sentence-transformers/all-MiniLM-L6-v2** :
+Docodile utilise des **modèles d'IA avancés** spécialisés dans l'analyse documentaire :
 
-- **Type** : Transformer (BERT-based)
-- **Taille** : ~90 MB
-- **Embeddings** : 384 dimensions
+- **Type** : Modèles de langage et analyse sémantique
+- **Taille** : Optimisé pour fonctionner sur CPU standard
 - **Précision** : 90% sur matching documentaire
-- **Performance** : Optimisé CPU (pas besoin de GPU)
+- **Performance** : Pas besoin de GPU
+- **Déploiement** : Fonctionne entièrement hors-ligne
 
-Ce modèle est open-source et peut fonctionner entièrement hors-ligne.
+Les modèles sont optimisés pour le traitement de documents techniques industriels.
 
 ### Docodile nécessite-t-il un GPU ?
 
@@ -186,15 +186,15 @@ Ce modèle est open-source et peut fonctionner entièrement hors-ligne.
 
 - ✅ Fonctionne sur ordinateurs portables standards
 - ✅ Pas de GPU requis (coût réduit)
-- ✅ PyTorch CPU-only (~200 MB vs. 2 GB avec CUDA)
+- ✅ Frameworks ML optimisés CPU (installation légère)
 
 ### Comment Docodile protège-t-il mon code ?
 
-Docodile utilise **l'obfuscation Python** (PyArmor) pour protéger le code source distribué aux clients :
+Docodile utilise **plusieurs techniques de protection avancées** pour sécuriser le code distribué :
 
-- 🔒 **Code obfusqué** : AST modifié, difficile à reverse-engineer
+- 🔒 **Obfuscation multi-niveaux** : Code protégé contre le reverse-engineering
 - 🔒 **Licence liée machine** : Un client = une machine autorisée
-- 🔒 **JWT tokens** : Authentification sécurisée
+- 🔒 **Authentification sécurisée** : Tokens JWT avec validation serveur
 
 Le code source complet reste **propriétaire et privé**.
 
@@ -337,8 +337,8 @@ Pour des projets personnels ou académiques, contactez-nous : contact@docodile.f
 **Oui**, avec quelques précautions :
 
 - ✅ Python 3.9-3.12 (ARM64 natif)
-- ✅ PyTorch CPU (version ARM64)
-- ⚠️ Performances légèrement inférieures vs. x86_64 (rosetta2)
+- ✅ Frameworks ML compatibles ARM64
+- ⚠️ Performances légèrement inférieures vs. x86_64
 
 Recommandé : Python depuis Homebrew (`brew install python@3.12`)
 

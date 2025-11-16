@@ -103,10 +103,10 @@ Docodile analyse automatiquement :
 - 📄 **Contenu des fichiers** PDF (OCR si nécessaire)
 - 📊 **Fichiers Excel** avec listes de documents
 
-**Technologie** : Triple Cascade AI
-- Niveau 1 : Analyse des noms de fichiers
-- Niveau 2 : Analyse du contenu (embeddings sémantiques)
-- Niveau 3 : Validation croisée avec template VDB
+**Technologie** : Système d'analyse IA multi-niveaux
+- Analyse des métadonnées et structure
+- Analyse sémantique du contenu
+- Validation croisée avec template VDB
 
 ### 2. Mapping Automatique
 
@@ -124,30 +124,12 @@ Docodile analyse automatiquement :
 3. ✅ Matching IA (précision 90%)
 4. ✅ Génération du rapport de correspondance
 
-**Sortie** : Fichier JSON avec matching validé
+**Sortie** : Rapport de correspondances avec :
+- Fichiers matchés et niveau de confiance
+- Sections non remplies
+- Statistiques de complétude
 
-```json
-{
-  "3.2.1": {
-    "titre": "Operating Manual",
-    "fichier_source": "Manual_V3_Final_FINAL.pdf",
-    "confiance": 0.95,
-    "statut": "matched"
-  },
-  "5.1.4": {
-    "titre": "Material Certifications",
-    "fichier_source": "Certificate_Material_A.pdf",
-    "confiance": 0.92,
-    "statut": "matched"
-  },
-  "7.2.3": {
-    "titre": "Design Drawings",
-    "fichier_source": null,
-    "confiance": 0.0,
-    "statut": "missing"
-  }
-}
-```
+Format : Données structurées (JSON) + Rapports textuels lisibles
 
 ### 3. Validation & Rapport
 
@@ -158,9 +140,9 @@ Docodile génère un **rapport de validation** complet :
 - 📊 **Statistiques** : taux de complétion, précision
 
 **Format** :
-- `validation_report.json` (machine-readable)
-- `validation_report.txt` (human-readable)
-- `generation_report.txt` (logs détaillés)
+- Rapport de validation structuré (JSON)
+- Rapport de validation lisible (TXT)
+- Logs détaillés de génération
 
 ### 4. Génération du VDB Final
 
@@ -210,14 +192,14 @@ Une fois le matching validé par l'ingénieur :
                  │
 ┌────────────────▼─────────────────────────────────────┐
 │ 3. ANALYSE IA                                        │
-│    → SmartDirectoryMapper scanne fichiers           │
-│    → FileMatchingEngine fait le matching            │
+│    → Scan automatique des fichiers sources          │
+│    → Matching intelligent IA (90% précision)        │
 │    → Génération rapports de validation              │
 └────────────────┬─────────────────────────────────────┘
                  │
 ┌────────────────▼─────────────────────────────────────┐
 │ 4. VALIDATION HUMAINE                                │
-│    → Vérification du rapport validation_report.txt  │
+│    → Vérification du rapport de validation          │
 │    → Correction manuelle si nécessaire (10% cas)     │
 └────────────────┬─────────────────────────────────────┘
                  │

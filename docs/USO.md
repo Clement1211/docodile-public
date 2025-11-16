@@ -137,50 +137,25 @@ Docodile analyse automatiquement les PO Excel/PDF :
 
 **Entrée** : `Purchase_Order_2025.xlsx`
 
-**Sortie** : `excel_parsed.json`
-```json
-[
-  {
-    "ligne": 1,
-    "repere": "V-001",
-    "designation": "Vanne papillon DN100",
-    "fabricant": "ACME Valves",
-    "numero_serie": "SN-12345",
-    "quantite": 1,
-    "materiau": "Inox 316L",
-    "pression_service": "16 bar"
-  },
-  {
-    "ligne": 2,
-    "repere": "V-002",
-    "designation": "Vanne papillon DN100",
-    "fabricant": "ACME Valves",
-    "numero_serie": "SN-12346",
-    ...
-  }
-]
-```
+**Sortie** : Données structurées contenant :
+- Identifiants équipements (repère, numéro de série)
+- Caractéristiques techniques extraites
+- Informations fabricant
+- Métadonnées complémentaires
+
+Format : JSON pour traitement automatique
 
 ### 2. Matching Documents ↔ Équipements
 
 Pour chaque équipement extrait du PO, Docodile cherche automatiquement les documents associés :
 
-**Critères de Matching IA** :
-- 🔍 Numéro de série dans les noms de fichiers ou contenus PDF
-- 🔍 Repère d'équipement (V-001, P-010, etc.)
-- 🔍 Désignation (mots-clés : "vanne", "pompe", "DN100")
-- 🔍 Fabricant (ACME Valves, Flowtech)
+**Analyse IA Multi-Critères** :
+- 🔍 Analyse des identifiants uniques (numéros de série, repères)
+- 🔍 Analyse sémantique des désignations et types d'équipements
+- 🔍 Correspondance fabricants et références
+- 🔍 Validation croisée avec métadonnées
 
-**Exemple** :
-```
-Équipement : V-001 (Vanne papillon DN100, SN-12345)
-
-Documents sources trouvés :
-✅ Certificate_Material_SN-12345.pdf (confiance: 0.98)
-✅ Test_Report_V001_ACME.pdf (confiance: 0.95)
-✅ Drawing_Butterfly_Valve_DN100.pdf (confiance: 0.87)
-⚠️  Manual_ACME_Valves_General.pdf (confiance: 0.65, générique)
-```
+Le système calcule un score de confiance pour chaque correspondance trouvée et signale les matches incertains pour validation manuelle.
 
 ### 3. Génération Rapports USO Individuels
 
@@ -223,7 +198,7 @@ USO_V-001_Vanne_Papillon_DN100/
 
 ### 4. Validation et Traçabilité
 
-**Rapport de Génération** (`generation_report.txt`) :
+**Rapport de Génération détaillé** :
 ```
 ==========================================
 RAPPORT GÉNÉRATION USO - 2025-11-16
@@ -296,18 +271,17 @@ STATISTIQUES GLOBALES :
                  │
 ┌────────────────▼─────────────────────────────────────┐
 │ 3. PARSING PO                                        │
-│    → ExcelParser détecte structure                   │
+│    → Détection automatique structure PO              │
 │    → Extraction des équipements (25 lignes)          │
-│    → Génération excel_parsed.json                    │
+│    → Génération données structurées                  │
 └────────────────┬─────────────────────────────────────┘
                  │
 ┌────────────────▼─────────────────────────────────────┐
 │ 4. MATCHING IA                                       │
-│    → Pour chaque équipement:                         │
-│      - Recherche documents par N° série              │
-│      - Recherche par repère                          │
-│      - Recherche par mots-clés                       │
-│    → Génération pdf_inventory.json                   │
+│    → Analyse multi-critères pour chaque équipement   │
+│    → Recherche intelligente documents associés       │
+│    → Calcul scores de confiance                      │
+│    → Génération inventaire de correspondances        │
 └────────────────┬─────────────────────────────────────┘
                  │
 ┌────────────────▼─────────────────────────────────────┐
@@ -319,7 +293,7 @@ STATISTIQUES GLOBALES :
                  │
 ┌────────────────▼─────────────────────────────────────┐
 │ 6. VALIDATION HUMAINE                                │
-│    → Revue du generation_report.txt                  │
+│    → Revue du rapport de génération                  │
 │    → Vérification des documents manquants            │
 │    → Complétion manuelle si nécessaire (10-20%)      │
 └──────────────────────────────────────────────────────┘
