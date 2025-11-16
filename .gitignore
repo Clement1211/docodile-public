@@ -1,0 +1,56 @@
+# Docodile Public Documentation - .gitignore
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Archives (if generated locally)
+*.zip
+*.tar.gz
+*.tar
+
+# Node modules (if using any JS tooling)
+node_modules/
+
+# Python (if scripts added later)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv
+
+# Build outputs (if any)
+build/
+dist/
+*.egg-info/
+
+# OS-specific
+.Trash-*
+.nfs*
