@@ -4,6 +4,8 @@
 
 Docodile est une solution d'intelligence artificielle qui automatise la génération de documents techniques complexes tels que les Vendor Data Books (VDB), les rapports USO (Utilisation en Service des Ouvrages), et autres documentations industrielles critiques.
 
+[![GitHub Stars](https://img.shields.io/github/stars/Clement1211/docodile-public?style=social)](https://github.com/Clement1211/docodile-public)
+[![License](https://img.shields.io/badge/license-Documentation-blue)](LICENSE)
 [![Website](https://img.shields.io/badge/website-docodile.fr-00C896)](https://docodile.fr)
 [![Demo](https://img.shields.io/badge/demo-available-00C896)](https://docodile.fr/demo)
 
